@@ -7,12 +7,15 @@ createdb:
 dropdb: 
 	docker exec -it postgres18 dropdb simple_bank
 
+# Run by Powershell
 migrateup:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
+# Run by Powershell
 migratedown:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
 
+# Run by WSL
 sqlc:
 	sqlc generate
 
